@@ -88,7 +88,9 @@ const groupedByDate = computed(() => {
     <!-- If loaded, show animated cards -->
     <template v-else>
       <div v-for="(groupedSlots, date) in groupedByDate" :key="date" class="mb-6">
-        <h2 class="text-h6 font-weight-bold mb-3">{{ formatDate(date) }}</h2>
+        <h2 class="text-h6 font-weight-bold mb-2">
+          <v-icon left class="mr-1">mdi-calendar</v-icon>{{ formatDate(date) }}
+        </h2>
         
         <v-row dense>
           <v-col

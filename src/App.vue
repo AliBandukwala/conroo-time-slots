@@ -9,7 +9,7 @@
     </v-app-bar>
     
     <v-main app>
-      <v-container class="py-6">
+      <v-container>
         <TimeSlotList />
       </v-container>
     </v-main>

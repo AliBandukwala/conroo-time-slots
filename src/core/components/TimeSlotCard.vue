@@ -55,6 +55,17 @@ function formatTime(dateStr: string): string {
 </template>
 
 <style scoped>
+.v-card {
+  transition: box-shadow 0.2s ease, filter 0.2s ease, transform 0.2s ease;
+  will-change: box-shadow, filter;
+}
+
+.v-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  filter: brightness(1.1);
+  z-index: 2;
+}
+
 .v-card-title {
   font-size: 1rem;
 }
