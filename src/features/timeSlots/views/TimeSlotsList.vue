@@ -5,7 +5,6 @@ import { storeToRefs } from 'pinia'
 import { fetchTimeSlots, subscribeToUpdates } from '@/api/timeSlots'
 import TimeSlotCard from '@/core/components/TimeSlotCard.vue'
 
-
 const store = useTimeSlotStore()
 const { timeSlots, isLoading, error } = storeToRefs(store)
 
@@ -42,6 +41,7 @@ onUnmounted(() => {
   eventSource?.close()
 })
 
+// formate date to be displayed above the date wise grouped slots
 function formatDate(dateStr: string): string {
   const d = new Date(dateStr)
   const options: Intl.DateTimeFormatOptions = { weekday: 'long', day: 'numeric', month: 'short', year: 'numeric' }
@@ -51,6 +51,7 @@ function formatDate(dateStr: string): string {
   return `${map.weekday}, ${map.day} ${map.month}, ${map.year}`
 }
 
+// method to group slots by dates
 const groupedByDate = computed(() => {
   const map: Record<string, any[]> = {}
   for (const slot of timeSlots.value) {

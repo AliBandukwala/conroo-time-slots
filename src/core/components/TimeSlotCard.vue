@@ -3,22 +3,25 @@ import type { TimeSlot } from '../../features/timeSlots/models/timeSlots.model'
 
 defineProps<{ slot: TimeSlot }>()
 
-function getStartTime(slot: any): string {
+// getting starting time from time slot object
+function getStartTime(slot: TimeSlot): string {
   return slot.start_time || slot.startTime || ''
 }
 
-function getEndTime(slot: any): string {
+function getEndTime(slot: TimeSlot): string {
   return slot.end_time || slot.endTime  || ''
 }
 
-function getCurrentCapacity(slot: any): number {
+function getCurrentCapacity(slot: TimeSlot): number {
   return slot.capacity.current_capacity ?? 0
 }
 
-function getPercentage(slot: any): number {
+// calculating capacity percentage for the slot
+function getPercentage(slot: TimeSlot): number {
   return Math.round((getCurrentCapacity(slot) / 50) * 100)
 }
 
+// format time to display in slot card
 function formatTime(dateStr: string): string {
   return new Date(dateStr).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
 }

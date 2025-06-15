@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import type { TimeSlot } from '../models/timeSlots.model'
 
 export const useTimeSlotStore = defineStore('timeSlots', () => {
-  // Reactive state
+  // Reactive state properties
   const timeSlots = ref<TimeSlot[]>([])
   const isLoading = ref(true)
   const error = ref<string | null>(null)
@@ -28,10 +28,12 @@ export const useTimeSlotStore = defineStore('timeSlots', () => {
     }
   }
 
+  // update error state to show in UI
   const setError = (msg: string) => {
     error.value = msg
   }
 
+  // clear error in UI
   const clearError = () => {
     error.value = null
   }

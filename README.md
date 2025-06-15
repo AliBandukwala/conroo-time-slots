@@ -28,7 +28,16 @@ npm run dev
 npm run test:unit
 ```
 
-## Real-World Project Improvements
+## 🧠 Design Choices
+
+* Feature-sliced folder structure: Organizes by domain (features/timeSlots) for long-term maintainability.
+* Composition API + Pinia: Chosen for fine-grained reactivity and clear state management.
+* Separation of concerns: API, store, and UI layers are decoupled to improve testability and reuse.
+* Reusable card component (TimeSlotCard.vue): Keeps view logic clean and composable.
+* Theme toggle support: Improves UX and reflects real-world polish.
+* Skeleton loading UI and error handling: Provides good perceived performance and smooth feedback.
+
+## 📦 Real-World Project Improvements
 
 * In a production scenario, I would also:
 * Add CI/CD (e.g. GitHub Actions) for tests and linting
