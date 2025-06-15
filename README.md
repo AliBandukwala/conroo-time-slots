@@ -36,15 +36,18 @@ npm run test:unit
 * Reusable card component (TimeSlotCard.vue): Keeps view logic clean and composable.
 * Theme toggle support: Improves UX and reflects real-world polish.
 * Skeleton loading UI and error handling: Provides good perceived performance and smooth feedback.
+* Accessibility: Using semantic html and aria labels for better SEO and screen reading.
+* Unit testing: for making sure the logic is robust.
 
 ## 📦 Real-World Project Improvements
 
-* In a production scenario, I would also:
-* Add CI/CD (e.g. GitHub Actions) for tests and linting
+* Use test coverage tools
+* Add linting
 * Include E2E testing (e.g. Playwright or Cypress)
+* Add CI/CD (e.g. Gitlab CI + Docker + ArgoCD)
 * Integrate feature flags or environment configs
 * Add analytics + error monitoring (e.g. Sentry, PostHog)
-* Use a design system or Storybook for UI scalability
-* Implement robust accessibility testing (axe-core, Lighthouse)
+* Use a design system and/or Storybook for UI scalability
+* Keep a check on Core Web Vitals (Lighthouse)
 * Deploy via Netlify, Vercel, or Docker-based CI
 
