@@ -36,11 +36,13 @@ npm run test:unit
 * Reusable card component (TimeSlotCard.vue): Keeps view logic clean and composable.
 * Theme toggle support: Improves UX and reflects real-world polish.
 * Skeleton loading UI and error handling: Provides good perceived performance and smooth feedback.
+* Filters: For quicker lookup leading to better UX.
 * Accessibility: Using semantic html and aria labels for better SEO and screen reading.
 * Unit testing: for making sure the logic is robust.
 
 ## 📦 Real-World Project Improvements
 
+* Better Filters + Sorting feature to improve UX
 * Use test coverage tools
 * Add linting
 * Include E2E testing (e.g. Playwright or Cypress)

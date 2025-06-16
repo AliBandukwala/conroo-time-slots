@@ -4,11 +4,15 @@ import { useTimeSlotStore } from '@/features/timeSlots/stores/timeSlots.store'
 import { storeToRefs } from 'pinia'
 import { fetchTimeSlots, subscribeToUpdates } from '@/api/timeSlots'
 import TimeSlotCard from '@/core/components/TimeSlotCard.vue'
+import type { TimeSlot } from '@/features/timeSlots/models/timeSlots.model'
 
 const store = useTimeSlotStore()
 const { timeSlots, isLoading, error } = storeToRefs(store)
 
 let eventSource: EventSource | null = null
+
+// filters
+const showOnlyGreen = ref(false)
 
 /* In real app, send to analytics service */
 function trackEvent(event: string, payload: any) {
@@ -53,13 +57,18 @@ function formatDate(dateStr: string): string {
 
 // method to group slots by dates
 const groupedByDate = computed(() => {
-  const map: Record<string, any[]> = {}
+  const map: Record<string, TimeSlot[]> = {}
+
   for (const slot of timeSlots.value) {
-    const time = slot.start_time || slot.startTime || ''
-    const date = new Date(time).toISOString().split('T')[0] // format: yyyy-mm-dd
+    const time = slot.start_time || ''
+    const date = new Date(time).toISOString().split('T')[0]
+
+    if (showOnlyGreen.value && slot.category !== 'green') continue
+
     if (!map[date]) map[date] = []
     map[date].push(slot)
   }
+
   return map
 })
 </script>
@@ -87,6 +96,16 @@ const groupedByDate = computed(() => {
 
     <!-- If loaded, show animated cards -->
     <template v-else>
+      <!-- Filters -->
+      <v-switch
+        v-model="showOnlyGreen"
+        color="primary"
+        label="Show only available (green)"
+        class="mt-4"
+        inset
+      />
+
+       <!-- Main section -->
       <div v-for="(groupedSlots, date) in groupedByDate" :key="date" class="mb-6">
         <h2 class="text-h6 font-weight-bold mb-2">
           <v-icon left class="mr-1">mdi-calendar</v-icon>{{ formatDate(date) }}
