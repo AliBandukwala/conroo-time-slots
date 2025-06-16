@@ -40,15 +40,21 @@ npm run test:unit
 * Accessibility: Using semantic html and aria labels for better SEO and screen reading.
 * Unit testing: for making sure the logic is robust.
 
+## 🐳 DevOps Add-ons
+
+* Included `Dockerfile` and `nginx.conf` to containerize the frontend with Nginx
+* Local development supported via `docker-compose.yml`
+* CI pipeline included via `.gitlab-ci.yml` for install, test, and build steps
+
 ## 📦 Real-World Project Improvements
 
 * Better Filters + Sorting feature to improve UX
 * Use test coverage tools
 * Add linting
 * Include E2E testing (e.g. Playwright or Cypress)
-* Add CI/CD (e.g. Gitlab CI + Docker + ArgoCD)
+* Properly add Containerization and CI/CD (e.g. Gitlab CI + Docker + ArgoCD)
 * Integrate feature flags or environment configs
-* Add analytics + error monitoring (e.g. Sentry, PostHog)
+* Add analytics + error monitoring (e.g. Sentry)
 * Use a design system and/or Storybook for UI scalability
 * Keep a check on Core Web Vitals (Lighthouse)
 * Deploy via Netlify, Vercel, or Docker-based CI
