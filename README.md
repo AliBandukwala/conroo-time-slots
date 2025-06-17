@@ -44,7 +44,7 @@ npm run test:unit
 
 * Included `Dockerfile` and `nginx.conf` to containerize the frontend with Nginx
 * Local development supported via `docker-compose.yml`
-* CI pipeline included via `.gitlab-ci.yml` for install, test, and build steps
+* Includes GitHub Actions workflow to install, test, and build the app on every push to `main`. Could be extended to have deployment support.
 
 ## 📦 Real-World Project Improvements
 
